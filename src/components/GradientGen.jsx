@@ -32,7 +32,7 @@ export default function GradientGen() {
               project.
             </p>
             <a href="#create-your-own">
-              <button className="bg-white text-purple-600 hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg px-6 py-3 rounded-lg text-lg font-medium">
+              <button className="bg-white text-purple-600 hover:bg-gray-100 hover:cursor-pointer transition-all duration-300 transform hover:scale-105 shadow-lg px-6 py-3 rounded-lg text-lg font-medium">
                 🎨 Generate Your Dream Gradient
               </button>
             </a>
