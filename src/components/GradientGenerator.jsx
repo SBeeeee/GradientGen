@@ -2,16 +2,17 @@
 import { useState } from "react";
 import { getRandomColor, generateCssGradient, generateTailwindGradient } from "@/utils/helper";
 import ColorPicker from "./ColorPicker";
-import {Palette, 
-  Sparkles, 
-  RefreshCw, 
-  Wand2, 
-  Zap, 
-  Trash2, 
-  Plus, 
-  Eye, 
-  Copy, 
-  CheckCircle2 } from "lucide-react";
+import {
+  Palette,
+  Sparkles,
+  RefreshCw,
+  Zap,
+  Trash2,
+  Plus,
+  Eye,
+  Copy,
+  CheckCircle2
+} from "lucide-react";
 
 const GradientGenerator = ({ isDark }) => {
   const [gradientType, setGradientType] = useState("linear");
@@ -19,10 +20,8 @@ const GradientGenerator = ({ isDark }) => {
   const [linearDirection, setLinearDirection] = useState("to right");
   const [radialDirection, setRadialDirection] = useState("circle at center");
   const [conicDirection, setConicDirection] = useState("from 90deg at 50% 50%");
-  const [noiseEnabled, setNoiseEnabled] = useState(false);
   const [copiedCode, setCopiedCode] = useState(false);
   const [activeTab, setActiveTab] = useState("css");
-  const [animationEnabled, setAnimationEnabled] = useState(false);
 
   const currentDirection =
     gradientType === "linear"
@@ -79,27 +78,21 @@ const GradientGenerator = ({ isDark }) => {
     }
   };
 
-  const noiseSvg = "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.1'/%3E%3C/svg%3E\")";
-
-  const combinedBackgroundImage = noiseEnabled ? `${currentCss}, ${noiseSvg}` : currentCss;
-
   return (
     <div className={`relative rounded-3xl shadow-2xl overflow-hidden transition-all duration-500 ${
       isDark 
         ? "bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 border border-gray-700" 
         : "bg-gradient-to-br from-white via-gray-50 to-white border border-gray-200"
     }`}>
-      {/* Background decoration */}
       <div className="absolute inset-0 bg-gradient-to-r from-purple-500/5 via-pink-500/5 to-blue-500/5" />
-      
+
       <div className="relative grid lg:grid-cols-2 gap-8 p-8">
-        {/* Customizer Section */}
         <div className="space-y-8">
           <div className="text-center lg:text-left">
             <h3 className="text-3xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent mb-2">
               Customize Your Gradient
             </h3>
-            <p className={`text-sm ${isDark ? 'text-gray-900' : 'text-gray-900'}`}>
+            <p className={`text-sm text-gray-900`}>
               Create stunning gradients with our advanced tools
             </p>
           </div>
@@ -114,54 +107,45 @@ const GradientGenerator = ({ isDark }) => {
               {["linear", "radial", "conic"].map((type) => (
                 <button
                   key={type}
-                  className={`relative px-4 py-3 rounded-xl border-2 transition-all duration-300 transform hover:scale-105 ${
+                  className={`relative px-4 py-3 rounded-xl border-2 transition-all duration-300 transform hover:scale-105 cursor-pointer ${
                     gradientType === type
                       ? "bg-gradient-to-r from-purple-500 to-pink-500 text-white border-transparent shadow-lg"
                       : `${isDark ? "bg-gray-800 border-gray-600 text-white hover:border-purple-400" : "bg-white border-gray-300 text-black hover:border-purple-500"} hover:shadow-md`
                   }`}
                   onClick={() => setGradientType(type)}
                 >
-                  <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-purple-500/10 to-pink-500/10 opacity-0 hover:opacity-100 transition-opacity duration-300" />
                   <span className="relative font-medium">{type.charAt(0).toUpperCase() + type.slice(1)}</span>
                 </button>
               ))}
             </div>
           </div>
 
-          {/* Color Pickers */}
+          {/* Colors */}
           <div className="space-y-4">
             <div className="flex items-center justify-between">
               <label className="text-lg font-semibold flex items-center space-x-2 text-gray-900">
                 <Sparkles className="h-5 w-5" />
                 <span>Colors ({colors.length} of 5)</span>
               </label>
-              <div className="flex space-x-2">
-                <button
-                  onClick={addColor}
-                  disabled={colors.length >= 5}
-                  className="bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 disabled:from-gray-400 disabled:to-gray-500 text-white px-3 py-1 rounded-lg text-sm font-medium flex items-center space-x-1 transition-all duration-300 disabled:cursor-not-allowed"
-                >
-                  <Plus className="h-4 w-4" />
-                  <span>Add</span>
-                </button>
-              </div>
+              <button
+                onClick={addColor}
+                disabled={colors.length >= 5}
+                className="cursor-pointer bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 disabled:from-gray-400 disabled:to-gray-500 text-white px-3 py-1 rounded-lg text-sm font-medium flex items-center space-x-1 transition-all duration-300 disabled:cursor-not-allowed"
+              >
+                <Plus className="h-4 w-4" />
+                <span>Add</span>
+              </button>
             </div>
-            
             <div className="space-y-4">
               {colors.map((color, index) => (
                 <div key={index} className="flex items-center space-x-4">
                   <span className="text-sm font-medium w-8 text-gray-900">#{index + 1}</span>
                   <div className="flex-1">
-                    <ColorPicker 
-                      value={color} 
-                      onChange={(c) => handleColorChange(index, c)} 
-                      isDark={isDark}
-                      index={index}
-                    />
+                    <ColorPicker value={color} onChange={(c) => handleColorChange(index, c)} isDark={isDark} index={index} />
                   </div>
                   {colors.length > 2 && (
                     <button
-                      className="bg-red-500 hover:bg-red-600 text-white p-2 rounded-lg transition-all duration-300 hover:scale-105"
+                      className="cursor-pointer bg-red-500 hover:bg-red-600 text-white p-2 rounded-lg transition-all duration-300 hover:scale-105"
                       onClick={() => removeColor(index)}
                     >
                       <Trash2 className="h-4 w-4" />
@@ -187,7 +171,7 @@ const GradientGenerator = ({ isDark }) => {
               ).map((dir) => (
                 <button
                   key={dir}
-                  className={`px-3 py-2 rounded-lg border-2 text-sm font-medium transition-all duration-300 hover:scale-105 ${
+                  className={`cursor-pointer px-3 py-2 rounded-lg border-2 text-sm font-medium transition-all duration-300 hover:scale-105 ${
                     currentDirection === dir
                       ? "bg-gradient-to-r from-purple-500 to-pink-500 text-white border-transparent shadow-lg"
                       : `${isDark ? "bg-gray-800 border-gray-600 text-white hover:border-purple-400" : "bg-white border-gray-300 text-black hover:border-purple-500"} hover:shadow-md`
@@ -206,37 +190,9 @@ const GradientGenerator = ({ isDark }) => {
             </div>
           </div>
 
-          {/* Special Effects */}
-          <div className="space-y-4">
-            <label className="text-lg font-semibold flex items-center text-gray-900 space-x-2">
-              <Wand2 className="h-5 w-5" />
-              <span>Special Effects</span>
-            </label>
-            <div className="grid grid-cols-2 gap-4">
-              <label className="flex text-gray-900 items-center space-x-3 p-3 rounded-lg border-2 border-dashed border-gray-300 dark:border-gray-600 hover:border-purple-400 transition-all duration-300 cursor-pointer">
-                <input
-                  type="checkbox"
-                  checked={noiseEnabled}
-                  onChange={(e) => setNoiseEnabled(e.target.checked)}
-                  className="w-4 h-4 text-purple-600 rounded"
-                />
-                <span className="font-medium">Add Noise</span>
-              </label>
-              <label className="flex text-gray-900 items-center space-x-3 p-3 rounded-lg border-2 border-dashed border-gray-300 dark:border-gray-600 hover:border-purple-400 transition-all duration-300 cursor-pointer">
-                <input
-                  type="checkbox"
-                  checked={animationEnabled}
-                  onChange={(e) => setAnimationEnabled(e.target.checked)}
-                  className="w-4 h-4 text-purple-600 rounded"
-                />
-                <span className="font-medium">Animation</span>
-              </label>
-            </div>
-          </div>
-
           {/* Random Button */}
           <button
-            className="w-full bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500 hover:from-purple-600 hover:via-pink-600 hover:to-orange-600 text-white px-6 py-4 rounded-xl font-bold text-lg flex items-center justify-center space-x-2 transition-all duration-300 transform hover:scale-105 shadow-lg"
+            className="cursor-pointer w-full bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500 hover:from-purple-600 hover:via-pink-600 hover:to-orange-600 text-white px-6 py-4 rounded-xl font-bold text-lg flex items-center justify-center space-x-2 transition-all duration-300 transform hover:scale-105 shadow-lg"
             onClick={handleRandomize}
           >
             <Zap className="h-5 w-5" />
@@ -244,27 +200,21 @@ const GradientGenerator = ({ isDark }) => {
           </button>
         </div>
 
-        {/* Preview + Code Section */}
+        {/* Right side - Preview and Code */}
         <div className="space-y-6">
           <div className="text-center lg:text-left">
             <h3 className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-2">
               Live Preview
             </h3>
-            <p className={`text-sm ${isDark ? 'text-gray-900' : 'text-gray-600'}`}>
-              See your gradient come to life
-            </p>
+            <p className={`text-sm ${isDark ? 'text-gray-900' : 'text-gray-600'}`}>See your gradient come to life</p>
           </div>
-
-          {/* Preview */}
           <div className="relative group">
             <div
-              className={`w-full h-80 rounded-2xl shadow-2xl border-4 border-white dark:border-gray-700 transition-all duration-500 ${
-                animationEnabled ? 'animate-pulse' : ''
-              }`}
+              className="w-full h-80 rounded-2xl shadow-2xl border-4 border-white dark:border-gray-700 transition-all duration-500"
               style={{
-                backgroundImage: combinedBackgroundImage,
+                backgroundImage: currentCss,
                 backgroundSize: "cover",
-                backgroundRepeat: "no-repeat",
+                backgroundRepeat: "no-repeat"
               }}
             >
               <div className="absolute inset-0 rounded-2xl bg-gradient-to-t from-black/20 via-transparent to-white/10" />
@@ -274,13 +224,13 @@ const GradientGenerator = ({ isDark }) => {
             </div>
           </div>
 
-          {/* Code Viewer */}
+          {/* Code viewer */}
           <div className="space-y-4">
             <div className="flex space-x-1 p-1 bg-gray-100 dark:bg-gray-800 rounded-lg">
               {["css", "tailwind"].map((tab) => (
                 <button
                   key={tab}
-                  className={`flex-1 px-4 py-2 rounded-md font-medium transition-all duration-300 ${
+                  className={`cursor-pointer flex-1 px-4 py-2 rounded-md font-medium transition-all duration-300 ${
                     activeTab === tab
                       ? "bg-white dark:bg-gray-700 text-black dark:text-white shadow-md"
                       : "text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200"
@@ -291,7 +241,6 @@ const GradientGenerator = ({ isDark }) => {
                 </button>
               ))}
             </div>
-            
             <div className="relative">
               <pre className={`p-4 rounded-xl text-sm overflow-x-auto border-2 ${
                 isDark 
@@ -301,16 +250,16 @@ const GradientGenerator = ({ isDark }) => {
                 <code>
                   {activeTab === "css"
                     ? `background: ${currentCss};`
-                    : `className="${currentTailwind}"`}
+                    : `className=\"${currentTailwind}\"`}
                 </code>
               </pre>
               <button
-                className="absolute top-3 right-3 bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 p-2 rounded-lg border border-gray-200 dark:border-gray-600 transition-all duration-300 hover:scale-105"
+                className="cursor-pointer absolute top-3 right-3 bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 p-2 rounded-lg border border-gray-200 dark:border-gray-600 transition-all duration-300 hover:scale-105"
                 onClick={() =>
                   handleCopyCode(
                     activeTab === "css"
                       ? `background: ${currentCss};`
-                      : `className="${currentTailwind}"`
+                      : `className=\"${currentTailwind}\"`
                   )
                 }
               >
