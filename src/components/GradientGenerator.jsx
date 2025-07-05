@@ -99,14 +99,14 @@ const GradientGenerator = ({ isDark }) => {
             <h3 className="text-3xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent mb-2">
               Customize Your Gradient
             </h3>
-            <p className={`text-sm ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
+            <p className={`text-sm ${isDark ? 'text-gray-900' : 'text-gray-900'}`}>
               Create stunning gradients with our advanced tools
             </p>
           </div>
 
           {/* Gradient Type */}
           <div className="space-y-4">
-            <label className="text-lg font-semibold flex items-center space-x-2">
+            <label className="text-lg font-semibold flex items-center space-x-2 text-gray-900">
               <Palette className="h-5 w-5" />
               <span>Gradient Type</span>
             </label>
@@ -131,7 +131,7 @@ const GradientGenerator = ({ isDark }) => {
           {/* Color Pickers */}
           <div className="space-y-4">
             <div className="flex items-center justify-between">
-              <label className="text-lg font-semibold flex items-center space-x-2">
+              <label className="text-lg font-semibold flex items-center space-x-2 text-gray-900">
                 <Sparkles className="h-5 w-5" />
                 <span>Colors ({colors.length} of 5)</span>
               </label>
@@ -150,7 +150,7 @@ const GradientGenerator = ({ isDark }) => {
             <div className="space-y-4">
               {colors.map((color, index) => (
                 <div key={index} className="flex items-center space-x-4">
-                  <span className="text-sm font-medium w-8">#{index + 1}</span>
+                  <span className="text-sm font-medium w-8 text-gray-900">#{index + 1}</span>
                   <div className="flex-1">
                     <ColorPicker 
                       value={color} 
@@ -174,7 +174,7 @@ const GradientGenerator = ({ isDark }) => {
 
           {/* Direction */}
           <div className="space-y-4">
-            <label className="text-lg font-semibold flex items-center space-x-2">
+            <label className="text-lg font-semibold flex items-center space-x-2 text-gray-900">
               <RefreshCw className="h-5 w-5" />
               <span>Direction</span>
             </label>
@@ -208,12 +208,12 @@ const GradientGenerator = ({ isDark }) => {
 
           {/* Special Effects */}
           <div className="space-y-4">
-            <label className="text-lg font-semibold flex items-center space-x-2">
+            <label className="text-lg font-semibold flex items-center text-gray-900 space-x-2">
               <Wand2 className="h-5 w-5" />
               <span>Special Effects</span>
             </label>
             <div className="grid grid-cols-2 gap-4">
-              <label className="flex items-center space-x-3 p-3 rounded-lg border-2 border-dashed border-gray-300 dark:border-gray-600 hover:border-purple-400 transition-all duration-300 cursor-pointer">
+              <label className="flex text-gray-900 items-center space-x-3 p-3 rounded-lg border-2 border-dashed border-gray-300 dark:border-gray-600 hover:border-purple-400 transition-all duration-300 cursor-pointer">
                 <input
                   type="checkbox"
                   checked={noiseEnabled}
@@ -222,7 +222,7 @@ const GradientGenerator = ({ isDark }) => {
                 />
                 <span className="font-medium">Add Noise</span>
               </label>
-              <label className="flex items-center space-x-3 p-3 rounded-lg border-2 border-dashed border-gray-300 dark:border-gray-600 hover:border-purple-400 transition-all duration-300 cursor-pointer">
+              <label className="flex text-gray-900 items-center space-x-3 p-3 rounded-lg border-2 border-dashed border-gray-300 dark:border-gray-600 hover:border-purple-400 transition-all duration-300 cursor-pointer">
                 <input
                   type="checkbox"
                   checked={animationEnabled}
@@ -250,7 +250,7 @@ const GradientGenerator = ({ isDark }) => {
             <h3 className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-2">
               Live Preview
             </h3>
-            <p className={`text-sm ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
+            <p className={`text-sm ${isDark ? 'text-gray-900' : 'text-gray-600'}`}>
               See your gradient come to life
             </p>
           </div>
