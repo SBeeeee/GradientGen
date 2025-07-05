@@ -40,7 +40,7 @@ const GradientCard = ({ gradient, isDark }) => {
           <div className="space-y-3">
             <div className="flex space-x-2">
               <button
-                className="flex-1 bg-white/20 hover:bg-white/30 text-white backdrop-blur-sm px-4 py-2 rounded-lg border border-white/30 text-sm font-medium flex items-center justify-center transition-all duration-300 hover:scale-105"
+                className="cursor-pointer flex-1 bg-white/20 hover:bg-white/30 text-white backdrop-blur-sm px-4 py-2 rounded-lg border border-white/30 text-sm font-medium flex items-center justify-center transition-all duration-300 hover:scale-105"
                 onClick={() => handleCopy(`background: ${gradient.css};`, setCopiedCss)}
               >
                 {copiedCss ? (
@@ -51,8 +51,8 @@ const GradientCard = ({ gradient, isDark }) => {
                 CSS
               </button>
               <button
-                className="flex-1 bg-white/20 hover:bg-white/30 text-white backdrop-blur-sm px-4 py-2 rounded-lg border border-white/30 text-sm font-medium flex items-center justify-center transition-all duration-300 hover:scale-105"
-                onClick={() => handleCopy(`className="${gradient.tailwind}"`, setCopiedTailwind)}
+                className="cursor-pointer flex-1 bg-white/20 hover:bg-white/30 text-white backdrop-blur-sm px-4 py-2 rounded-lg border border-white/30 text-sm font-medium flex items-center justify-center transition-all duration-300 hover:scale-105"
+                onClick={() => handleCopy(`className=\"${gradient.tailwind}\"`, setCopiedTailwind)}
               >
                 {copiedTailwind ? (
                   <CheckCircle2 className="h-4 w-4 mr-2" />
@@ -65,7 +65,7 @@ const GradientCard = ({ gradient, isDark }) => {
             
             <div className="flex space-x-2">
               <button
-                className="flex-1 bg-gradient-to-r from-pink-500 to-purple-500 hover:from-pink-600 hover:to-purple-600 text-white px-4 py-2 rounded-lg text-sm font-medium flex items-center justify-center transition-all duration-300 hover:scale-105"
+                className="cursor-pointer flex-1 bg-gradient-to-r from-pink-500 to-purple-500 hover:from-pink-600 hover:to-purple-600 text-white px-4 py-2 rounded-lg text-sm font-medium flex items-center justify-center transition-all duration-300 hover:scale-105"
                 onClick={() => setIsFavorite(!isFavorite)}
               >
                 {isFavorite ? (
@@ -75,7 +75,7 @@ const GradientCard = ({ gradient, isDark }) => {
                 )}
                 {isFavorite ? 'Favorited' : 'Favorite'}
               </button>
-              <button className="bg-white/20 hover:bg-white/30 text-white backdrop-blur-sm px-3 py-2 rounded-lg border border-white/30 transition-all duration-300 hover:scale-105">
+              <button className="cursor-pointer bg-white/20 hover:bg-white/30 text-white backdrop-blur-sm px-3 py-2 rounded-lg border border-white/30 transition-all duration-300 hover:scale-105">
                 <Download className="h-4 w-4" />
               </button>
             </div>
@@ -86,4 +86,4 @@ const GradientCard = ({ gradient, isDark }) => {
   );
 };
 
-  export default GradientCard
+export default GradientCard
