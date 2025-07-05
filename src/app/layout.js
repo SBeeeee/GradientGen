@@ -3,7 +3,7 @@ import "./globals.css";
 
 
 export const metadata = {
-  title: "GradientGen",
+  title: "Rangify",
   description: "Your Go-To Pallete for unique gradients",
 };
 
