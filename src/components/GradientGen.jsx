@@ -17,7 +17,7 @@ export default function GradientGen() {
       }`}>
         <header className="w-full max-w-6xl flex justify-between items-center mb-12">
           <h1 className="text-4xl font-extrabold bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent">
-            GradientGen 🌈
+            RanGiify 🌈
           </h1>
       
         </header>
@@ -27,7 +27,7 @@ export default function GradientGen() {
           <div className="text-white">
             <h2 className="text-4xl md:text-5xl font-bold mb-4 drop-shadow-lg">Unleash Your Inner Color Wizard!</h2>
             <p className="text-lg md:text-xl max-w-3xl mx-auto mb-8 opacity-90">
-              GradientGen is your go-to spot for crafting stunning, vibrant gradients. Whether you're a design pro or
+              Rangiify is your go-to spot for crafting stunning, vibrant gradients. Whether you're a design pro or
               just playing around, we make it easy to find, create, and copy the perfect color blend for your next
               project.
             </p>
