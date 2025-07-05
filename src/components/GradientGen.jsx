@@ -1,7 +1,11 @@
+"use client"
+import { Copy, Palette, Shuffle, Sun, Moon, Sparkles, CheckCircle2 } from "lucide-react"
+import { useState,react } from "react";
 import ThemeToggle from "./ThemeToggle";
 import GradientGenerator from "./GradientGenerator";
 import GradientCard from "./GradientCard";
-
+import ColorPicker from "./ColorPicker";
+import { curatedGradients } from "@/utils/curatedgradients";
 export default function GradientGen() {
     const [isDark, setIsDark] = useState(false)
   

@@ -2,7 +2,7 @@
 import {react,useEffect,useState} from "react"
 
 
-export default  ColorPicker = ({ value, onChange }) => {
+const ColorPicker = ({ value, onChange }) => {
     const [hex, setHex] = useState(value)
     const [showPicker, setShowPicker] = useState(false)
   
@@ -60,3 +60,5 @@ export default  ColorPicker = ({ value, onChange }) => {
       </div>
     )
   }
+
+  export default ColorPicker;

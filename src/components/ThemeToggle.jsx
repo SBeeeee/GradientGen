@@ -1,4 +1,5 @@
-export default  ThemeToggle = ({ isDark, setIsDark }) => {
+import { Sun, Moon } from "lucide-react";
+const  ThemeToggle = ({ isDark, setIsDark }) => {
     return (
       <button
         className={`p-2 rounded border transition-colors ${
@@ -11,3 +12,4 @@ export default  ThemeToggle = ({ isDark, setIsDark }) => {
     )
   }
   
+  export default ThemeToggle;

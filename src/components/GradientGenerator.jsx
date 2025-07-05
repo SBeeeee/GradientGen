@@ -1,7 +1,12 @@
 "use client"
 import {react,useEffect,useState} from "react"
+import { getRandomColor } from "@/utils/helper"
+import {generateCssGradient} from "@/utils/helper"
+import {generateTailwindGradient} from "@/utils/helper"
+import ColorPicker from "./ColorPicker"
+import { Copy,  Shuffle ,CheckCircle2 } from "lucide-react"
 
-export default GradientGenerator = () => {
+const GradientGenerator = () => {
     const [gradientType, setGradientType] = useState("linear")
     const [colors, setColors] = useState(["#FF6B6B", "#FFD93D"])
     const [linearDirection, setLinearDirection] = useState("to right")
@@ -263,3 +268,4 @@ export default GradientGenerator = () => {
     )
   }
   
+  export default GradientGenerator

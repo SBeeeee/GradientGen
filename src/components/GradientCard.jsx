@@ -1,7 +1,9 @@
 "use client"
 import {react,useEffect,useState} from "react"
+import { Copy, CheckCircle2 } from "lucide-react";
 
-export default GradientCard = ({ gradient }) => {
+
+const GradientCard = ({ gradient }) => {
     const [copiedCss, setCopiedCss] = useState(false)
     const [copiedTailwind, setCopiedTailwind] = useState(false)
   
@@ -50,3 +52,5 @@ export default GradientCard = ({ gradient }) => {
       </div>
     )
   }
+
+  export default GradientCard
