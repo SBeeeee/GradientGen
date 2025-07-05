@@ -7,7 +7,7 @@ import GradientCard from "./GradientCard";
 import ColorPicker from "./ColorPicker";
 import { curatedGradients } from "@/utils/curatedgradients";
 export default function GradientGen() {
-    const [isDark, setIsDark] = useState(false)
+    const [isDark, setIsDark] = useState(true)
   
     return (
       <div className={`min-h-screen flex flex-col items-center py-8 px-4 sm:px-6 lg:px-8 transition-colors ${
@@ -19,7 +19,7 @@ export default function GradientGen() {
           <h1 className="text-4xl font-extrabold bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent">
             GradientGen 🌈
           </h1>
-          <ThemeToggle isDark={isDark} setIsDark={setIsDark} />
+      
         </header>
   
         {/* Hero Section */}

@@ -38,4 +38,12 @@ export   const generateTailwindGradient = (type, colors, direction) => {
     return ""
   }
   
-  
+export const colorNames = {
+    red: '#FF0000', blue: '#0000FF', green: '#00FF00', yellow: '#FFFF00',
+    purple: '#800080', pink: '#FFC0CB', orange: '#FFA500', cyan: '#00FFFF',
+    magenta: '#FF00FF', lime: '#00FF00', navy: '#000080', teal: '#008080',
+    maroon: '#800000', olive: '#808000', silver: '#C0C0C0', gray: '#808080',
+    black: '#000000', white: '#FFFFFF', gold: '#FFD700', coral: '#FF7F50',
+    salmon: '#FA8072', crimson: '#DC143C', violet: '#8A2BE2', indigo: '#4B0082',
+    turquoise: '#40E0D0', chocolate: '#D2691E', khaki: '#F0E68C', lavender: '#E6E6FA'
+  };  
